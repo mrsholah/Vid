@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video</title>
+</head>
+<body>
+    <h1>Video</h1>
+    <video id="videoPlayer" width="100%" height="100%" controls autoplay>
+        <source id="videoSource" type="video/mp4">
+        Browser Anda tidak mendukung video tag.
+    </video>
+
+    <script>
+        // Mendapatkan parameter ID dari URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const videoId = urlParams.get('id');
+
+        // Mengatur sumber video berdasarkan ID
+        const videoSource = document.getElementById('videoSource');
+        videoSource.src = `https://drive.google.com/file/d/1PDIf_JQE0TH_FUEBD88pgc_KqpcC6J7Y/view?usp=drivesdk=${videoId}`;
+        const videoPlayer = document.getElementById('videoPlayer');
+        videoPlayer.load();
+    </script>
+</body>
+</html>
